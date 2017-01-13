@@ -37,14 +37,29 @@ cd ios-xr-grpc-python/examples/
 In the examples directory you'll find several python sample scripts the cli.py tool, and json/ directory containing example RPC filters.
 
 
-1. Perform a get-config operation:
+1. Perform an unfiltered get-config operation:
 
 ```
 python cli.py -i 192.168.122.214 -p 57400 -u cisco -pw cisco -r get-config
 
 ```
 
+This command should return the router's entire config in json:
 
+```
+{
+ "data": {
+  "Cisco-IOS-XR-shellutil-cfg:host-names": {
+   "host-name": "bb02"
+  },
+  "Cisco-IOS-XR-man-ems-cfg:grpc": {
+   "port": 57400,
+   "enable": [
+    null
+   ]
+  }
+  <snip>
+```
 
 
 
