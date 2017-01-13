@@ -17,7 +17,7 @@ sudo apt-get -y install python-dev python-pip git
 sudo pip install grpcio
 ```
 
-2. One or more IOS-XR routers running 6.x code.  Note: the client has been tested mostly on 6.1.1
+2. One or more reachable IOS-XR routers running 6.x code.  Note: the client has been tested mostly on 6.1.1
 3. Configure GRPC server on your router(s)
 
 ```
@@ -34,6 +34,13 @@ Next, clone the GRPC python client to your management station:
 git clone https://github.com/cisco-grpc-connection-libs/ios-xr-grpc-python.git
 cd ios-xr-grpc-python/examples/
 ```
+In the examples directory you'll find several python sample scripts the cli.py tool, and json/ directory containing example RPC filters.
+
+
+1. Perform a get-config operation:
+
+
+
 
 
 
