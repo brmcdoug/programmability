@@ -70,7 +70,7 @@ Output would look something like a much longer version of this:
   <snip>
 ```
 
-# 2. Perform an filtered get-config operation:
+# 2. Perform a filtered get-config operation:
 
 In this example we'll just ask for interface config:
 
@@ -153,7 +153,7 @@ Partial output:
    ```
 Note the json/ directory has numerous example get-config (and other RPC) filters
 
-# 3. Perform an filtered get-oper request:
+# 3. Perform a filtered get-oper request:
 
 Due to the fact that an unfiltered get-oper (get-oper *.*) might take years to complete, the CLI only allows filtered get-oper requests.  In this example we'll ask for a subset of BGP RIB data:
 
@@ -226,6 +226,45 @@ Partial output:
         }
 
 ```
+
+# 4. Perform a merge-config request:
+Here we're going to add a description and IPv4/6 addresses to interface gig0/0/0/6 
+json snip:
+```
+{
+ "Cisco-IOS-XR-ifmgr-cfg:interface-configurations": {
+  "interface-configuration": [
+   {
+    "active": "act",
+    "interface-name": "GigabitEthernet0/0/0/6",
+    "description": "test",
+    "Cisco-IOS-XR-ipv4-io-cfg:ipv4-network": {
+     "addresses": {
+      "primary": {
+       "address": "100.100.100.100",
+       "netmask": "255.255.255.254"
+      }
+     }
+    },
+    "Cisco-IOS-XR-ipv6-ma-cfg:ipv6-network": {
+     "addresses": {
+      "regular-addresses": {
+       "regular-address": [
+        {
+         "address": "100:100:100::100",
+         "prefix-length": 127,
+         "zone": 0
+        }
+       ]
+      }
+     }
+    }
+   }
+  ]
+ }
+}
+```
+
 
 
 
