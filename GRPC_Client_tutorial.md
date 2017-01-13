@@ -37,20 +37,22 @@ cd ios-xr-grpc-python/examples/
 In the examples directory you'll find several python sample scripts the cli.py tool, and json/ directory containing example RPC filters.
 
 
-1. Perform an unfiltered get-config operation:
+# 1. Perform an unfiltered get-config operation:
+
+This command should return the router's entire config in json
 
 ```
 python cli.py -i 192.168.122.214 -p 57400 -u cisco -pw cisco -r get-config
 
 ```
 
-This command should return the router's entire config in json:
+Output would look something like a much longer version of this:
 
 ```
 {
  "data": {
   "Cisco-IOS-XR-shellutil-cfg:host-names": {
-   "host-name": "bb02"
+   "host-name": "router1"
   },
   "Cisco-IOS-XR-man-ems-cfg:grpc": {
    "port": 57400,
@@ -61,6 +63,85 @@ This command should return the router's entire config in json:
   <snip>
 ```
 
+# 2. Perform an filtered get-config operation:
+
+In this example we'll just ask for interface config:
+
+```
+python cli.py -i 192.168.122.214 -p 57400 -u cisco -pw cisco -r get-config --file json/get-config-interfaces.json
+
+```
+
+Partial output:
+
+{
+ "Cisco-IOS-XR-ifmgr-cfg:interface-configurations": {
+  "interface-configuration": [
+   {
+    "active": "pre",
+    "interface-name": "MgmtEth0/0/CPU0/0",
+    "Cisco-IOS-XR-ipv4-io-cfg:ipv4-network": {
+     "addresses": {
+      "dhcp": [
+       null
+      ]
+     }
+    }
+   },
+   {
+    "active": "act",
+    "interface-name": "Loopback0",
+    "interface-virtual": [
+     null
+    ],
+    "Cisco-IOS-XR-ipv4-io-cfg:ipv4-network": {
+     "addresses": {
+      "primary": {
+       "address": "2.2.1.2",
+       "netmask": "255.255.255.255"
+      }
+     }
+    },
+    "Cisco-IOS-XR-ipv6-ma-cfg:ipv6-network": {
+     "addresses": {
+      "regular-addresses": {
+       "regular-address": [
+        {
+         "address": "2:2:1::2",
+         "prefix-length": 128,
+         "zone": 0
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "active": "act",
+    "interface-name": "GigabitEthernet0/0/0/0",
+    "description": "to router2",
+    "Cisco-IOS-XR-ipv4-io-cfg:ipv4-network": {
+     "addresses": {
+      "primary": {
+       "address": "2.2.2.35",
+       "netmask": "255.255.255.254"
+      }
+     }
+    },
+    "Cisco-IOS-XR-ipv6-ma-cfg:ipv6-network": {
+     "addresses": {
+      "regular-addresses": {
+       "regular-address": [
+        {
+         "address": "2:2:2::35",
+         "prefix-length": 127,
+         "zone": 0
+        }
+       ]
+      }
+     }
+    }
+   }
 
 
 
