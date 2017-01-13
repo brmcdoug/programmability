@@ -28,6 +28,12 @@ grpc
  
 The CLI doesn't currently support TLS encryption, so we've left that option disabled.
 
+Next, clone the GRPC python client to your management station:
+
+```
+git clone https://github.com/cisco-grpc-connection-libs/ios-xr-grpc-python.git
+cd ios-xr-grpc-python/examples/
+```
 
 
 
