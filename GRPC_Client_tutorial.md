@@ -264,7 +264,7 @@ json snip:
  }
 }
 ```
-# CLI command:
+# Command:
 
 ```
 python cli.py -i 192.168.122.214 -p 57400 -u cisco -pw cisco -r merge-config --file json/merge-config-change-intf.json 
