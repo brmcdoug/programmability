@@ -74,6 +74,7 @@ python cli.py -i 192.168.122.214 -p 57400 -u cisco -pw cisco -r get-config --fil
 
 Partial output:
 
+```
 {
  "Cisco-IOS-XR-ifmgr-cfg:interface-configurations": {
   "interface-configuration": [
@@ -142,6 +143,82 @@ Partial output:
      }
     }
    }
+   ```
+Note the json/ directory has numerous example get-config (and other RPC) filters
+
+# 3. Perform an filtered get-oper request:
+
+Due to the fact that an unfiltered get-oper (get-oper *.*) might take years to complete, the CLI only allows filtered get-oper requests.  In this example we'll ask for a subset of BGP RIB data:
+
+```
+python cli.py -i 192.168.122.214 -p 57400 -u cisco -pw cisco -r get-oper --file json/get-oper-cisco-oc-bgp-rib.json
+```
+
+Partial output:
+
+```
+{
+ "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp": {
+  "bgp-rib": {
+   "afi-safi-table": {
+    "ipv4-unicast": {
+     "loc-rib": {
+      "routes": {
+       "route": [
+        {
+         "route": "2.2.1.0/32",
+         "neighbor-address": "2.2.1.102",
+         "path-id": 0,
+         "prefix-name": {
+          "prefix": {
+           "afi": "ipv4",
+           "ipv4-address": "2.2.1.0"
+          },
+          "prefix-length": 32
+         },
+         "route-attr-list": {
+          "origin-type": "igp",
+          "as-path": [
+           null
+          ],
+          "as4-path": [
+           null
+          ],
+          "next-hop": {
+           "afi": "ipv4",
+           "ipv4-address": "2.2.1.0"
+          },
+          "med": 0,
+          "local-pref": 100,
+          "atomic-aggr": false,
+          "aggregrator-attributes": {
+           "as": 0,
+           "as4": 0,
+           "address": "0.0.0.0"
+          }
+         },
+         "ext-attributes-list": {
+          "originator-id": "2.2.1.0",
+          "cluster": [
+           "2.2.1.102"
+          ],
+          "aigp": 0,
+          "path-id": 0
+         },
+         "last-modified-date": {
+          "time-value": "2017-01-09T21:06:07Z"
+         },
+         "last-update-recieved": {
+          "time-value": [
+           null
+          ]
+         },
+         "valid-route": true,
+         "invalid-reason": "valid-route",
+         "best-path": true
+        }
+
+```
 
 
 
