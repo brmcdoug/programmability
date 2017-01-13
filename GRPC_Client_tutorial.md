@@ -36,6 +36,13 @@ cd ios-xr-grpc-python/examples/
 ```
 In the examples directory you'll find several python sample scripts the cli.py tool, and json/ directory containing example RPC filters.
 
+# CLI help
+Its as easy as:
+
+```
+python cli.py -h
+```
+
 
 # 1. Perform an unfiltered get-config operation:
 
