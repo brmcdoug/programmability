@@ -14,8 +14,8 @@ What you'll need:
 2. One or more IOS-XR routers running 6.x code.  Note: the client has been tested mostly on 6.1.1
 3. Configure GRPC server on your router(s)
 
-grpc
- port 57400
+'''grpc
+ port 57400'''
  
 The CLI doesn't currently support TLS encryption, so we've left that option disabled.
 
