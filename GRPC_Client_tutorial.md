@@ -264,6 +264,12 @@ json snip:
  }
 }
 ```
+# CLI command:
+
+```
+python cli.py -i 192.168.122.214 -p 57400 -u cisco -pw cisco -r merge-config --file json/merge-config-change-intf.json 
+```
+Assuming your RPC is good, the CLI won't actually return a response.  To validate your merge-config, run a get-config request (or login to the router's cli and 'show run'
 
 
 
