@@ -10,7 +10,13 @@ The client now includes CLI options and a number of additional sample json snips
 
 What you'll need:
 
-1. Management station/laptop: python, python-dev (ubuntu), and 'pip install grpcio'
+1. Management station/laptop: 
+```
+sudo apt-get update
+sudo apt-get -y install python-dev python-pip git
+sudo pip install grpcio
+```
+
 2. One or more IOS-XR routers running 6.x code.  Note: the client has been tested mostly on 6.1.1
 3. Configure GRPC server on your router(s)
 
@@ -21,6 +27,8 @@ grpc
 ```
  
 The CLI doesn't currently support TLS encryption, so we've left that option disabled.
+
+
 
 
 
