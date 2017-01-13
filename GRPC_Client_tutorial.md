@@ -39,6 +39,10 @@ In the examples directory you'll find several python sample scripts the cli.py t
 
 1. Perform a get-config operation:
 
+```
+python cli.py -i 192.168.122.214 -p 57400 -u cisco -pw cisco -r get-config
+
+```
 
 
 
